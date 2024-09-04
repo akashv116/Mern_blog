@@ -7,12 +7,13 @@ import cookieParser from "cookie-parser";
 // import commentRoutes from './routes/comment.route.js';
 import commentRoutes from "./routes/comment.route.js"
 import path from 'path';
+import cors from 'cors'
 
 const app=express(); 
 
 const __dirname=path.resolve();
 
-
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 
@@ -49,7 +50,5 @@ app.use((err,req,res,next)=>{
     success:false,
     statusCode,
     message
-
-
   })
 })
